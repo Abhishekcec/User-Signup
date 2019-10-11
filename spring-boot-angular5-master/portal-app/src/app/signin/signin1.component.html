@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <style>
+            #l{
+                width: 500px;
+                border: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container text-center" id="l"><br>
+            <h1>Login Form</h1>
+            <br><br><br>
+            <form>
+              
+                <div class="form-group">
+                  <label for="firstName">First Name:</label>
+                  <input [(ngModel)]="login.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+                </div>
+              
+                <div class="form-group">
+                  <label for="lastName">Last Name:</label>
+                  <input [(ngModel)]="login.lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+                </div>
+          
+              
+                <div class="form-group">
+                    <label for="contactNumber">Contact No:</label>
+                    <input type="text" [(ngModel)]="login.mobileNumber" placeholder="Contact Number" name="contactNumber" class="form-control" id="contactNumber">
+                </div>
+
+                <div class="form-group">
+                        <label for="contactNumber">Date Of Birth:</label>
+                        <input type="date" [(ngModel)]="login.DateofBirth" placeholder="Date of birth" name="contactNumber" class="form-control" id="dob">
+                    </div>
+              
+                <div class="form-group">
+                    <label for="contactNumber">Id Proof:</label>
+                   
+              
+                <select   class="browser-default custom-select"  name="id" (click)='Aadhar()'>
+                    <option value="" selected>--Select--</option>
+                    <option >Aadhar Card</option>
+                    <option (click)='PAN()'>PAN card</option>
+                    <option (click)='Dl()'>Driving Liscence</option>
+                   
+                    
+                </select></div>
+                <div *ngIf="showPAN" class="form-group">
+                    <input type="text" [(ngModel)]="login.idProof" placeholder="PAN Number" name="ID proof" class="form-control" id="idproof">
+                </div>
+                <div *ngIf="showAdr" class="form-group">
+                    <input type="text" [(ngModel)]="login.idProof" placeholder="Aadhar No." name="ID proof" class="form-control" id="idproof">
+                </div>
+                <div *ngIf="showDl" class="form-group">
+                    <input type="text" [(ngModel)]="login.idProof" placeholder="Liscence No." name="ID proof" class="form-control" id="idproof">
+                </div>
+               
+              
+                <button class="btn btn-success" (click)="create1User(login.firstName,login.lastName,login.mobileNumber,login.DateofBirth)">Create</button><br><br>
+              </form>
+        </div>
+    </body>
+</html>
